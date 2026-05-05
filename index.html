@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>萬惡部長退休倒數</title>
+    <title>解脫倒數計時</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
         body { font-family: 'Noto Sans TC', sans-serif; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        /* 隱藏滾動條保持介面乾淨 */
         ::-webkit-scrollbar { display: none; }
     </style>
 </head>
@@ -20,11 +19,11 @@
         
         <div class="relative z-10">
             <div class="flex justify-between items-end mb-2">
-                <h1 class="text-2xl md:text-4xl font-bold text-red-500 tracking-wider">萬惡部長退休倒數</h1>
-                <span class="text-xs text-zinc-500 mono bg-zinc-800 px-2 py-1 rounded">v1.0.0</span>
+                <h1 class="text-2xl md:text-4xl font-bold text-red-500 tracking-wider">解脫倒數計時</h1>
+                <span class="text-xs text-zinc-500 mono bg-zinc-800 px-2 py-1 rounded">v1.1.0</span>
             </div>
             <p class="text-sm md:text-base text-zinc-400 mb-8 border-b border-zinc-800 pb-4">
-                Target Date: <span class="text-zinc-200 mono">2028-05-17 00:00:00</span> (Age 65)
+                Target Date: <span class="text-zinc-200 mono">2028-05-17 00:00:00</span>
             </p>
 
             <!-- 倒數計時區塊 -->
@@ -51,7 +50,7 @@
             <!-- 進度條區塊 -->
             <div class="space-y-2">
                 <div class="flex justify-between text-xs text-zinc-500 mono">
-                    <span>STATUS: PENDING</span>
+                    <span>STATUS: IN PROGRESS (Since 2026-05-05)</span>
                     <span id="progress-text">0.000000%</span>
                 </div>
                 <div class="w-full bg-zinc-950 rounded-full h-1.5 overflow-hidden border border-zinc-800">
@@ -62,11 +61,11 @@
     </div>
 
     <script>
-        // 目標日期：1963/5/17 出生，65歲為 2028/5/17
+        // 目標日期：2028/5/17
         const TARGET_DATE = new Date('2028-05-17T00:00:00').getTime();
         
-        // 起始基準日（用以計算進度條，此處暫以本屆任期起點 2024/5/20 為例，可自行調整）
-        const START_DATE = new Date('2024-05-20T00:00:00').getTime();
+        // 起始基準日：鎖定為 2026/5/5，確保進度條具備實質意義
+        const START_DATE = new Date('2026-05-05T00:00:00').getTime();
         const TOTAL_DURATION = TARGET_DATE - START_DATE;
 
         const DOM = {
